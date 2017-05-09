@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Social Data Analysis and Visualisation - Project Assignment</title>
+
+    
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/landing-page.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+  </head>
+
+  <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+  <!-- Return to Top -->
+  <a href="#" id="return-to-top"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
+      <!-- Navigation -->
+  <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+        <div class="container topnav">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand topnav page-scroll" href="#page-top">DTU Project</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="page-scroll" href="#prointro">Intro</a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle page-scroll" href="#preliminary" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Preliminary Analysis</a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a class="page-scroll" href="#temporal">Accident Distribution(Timeline)</a></li>
+                            <li><a class="page-scroll" href="#spatial">Accident Distribution(Location)</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle page-scroll" href="#machinelearning" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Machine Learning</a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a class="page-scroll" href="#featurenet">Feature Net</a></li>
+                            <li><a class="page-scroll" href="#performance">Models Accuracy</a></li>
+                        </ul>
+                    </li>
+					<li class="dropdown">
+                        <a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Downloads</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="http://nbviewer.jupyter.org/url/shawnhouchn.github.io/Social-Graph-Interaction/project/project_assignmentB.ipynb" target="_blank">iPython Notebook (Preview)</a></li>
+                            <li><a href="https://shawnhouchn.github.io/Social-Graph-Interaction/project/project_assignmentB.ipynb" target="_blank">iPython Notebook (Download)</a></li>
+                            <li><a href="https://drive.google.com/file/d/0Byd_stTDMHZAVTdEV0xsVXpTSjg/view" target="_blank">GitHub Repository</a></li>
+                            <li><a href="https://drive.google.com/file/d/0BymjCBWE7wFzWHhyV2Y5NjQwX1U/view?usp=sharing" target="_blank">Merged data (Download)</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Header -->
+    <div class="intro-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="intro-message">
+                        <h1>NYC Car Accidents Analysis</h1>
+                        <hr class="intro-divider-top">
+                        <iframe class="vcenterVideo" width="560" height="315" src="https://www.youtube.com/embed/-pOYAXyQRi4" frameborder="0" allowfullscreen></iframe>
+                        <h3>Submission to DTU 02806 Social Data Analyse and Visualisation</h3>
+                        <hr class="intro-divider">
+                        <ul class="list-inline intro-social-buttons">
+                            <li>
+                                <a href="http://nbviewer.jupyter.org/github/ShawnHouCHN/SDAV2017-Assignment2/blob/master/week_5/week_5_exercises.ipynb" class="btn btn-default btn-lg"><i class="fa fa-cloud fa-fw"></i> <span class="network-name">Notebook</span></a>
+                            </li>
+                            <li>
+                                <a href="https://drive.google.com/file/d/0BymjCBWE7wFzWHhyV2Y5NjQwX1U/view?usp=sharing" class="btn btn-default btn-lg"><i class="fa fa-book fa-fw"></i> <span class="network-name">Dataset</span></a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/ShawnHouCHN/SDAV2017-Assignment2/tree/master/Assignment2" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+
+    <section id="foreword">
+    <div class="content-section-foreword">
+    <div class="container">
+        <div class="row">
+                <div class="col-md-6 hideme">
+                 	<div class="clearfix"></div>
+                    <h5 class="blue-text">Foreword:</h5> 
+                    <P class="blue-text">The corresponding jupyter notebook can be previewed or downloaded by clicking the dropdown list to the right of the navigation bar. The notebook is relatively <span class="orange-text">long and abundant</span> so it will take some time to load. Some of the plots in the notebook depend heavily on JS rendering so it is better to be viewed in <span class="orange-text">nbviewer</span>. </P>
+                    <P class="blue-text"><span class="orange-text">Notice:</span> This website is intentionally prepared for non-technical viewers, therefore, some plots are designed to prioritize intuitiveness than information. The associated plots in the notebook can vary from what is presented in the web.
+                </div>
+        </div>
+    </div>
+    </div>
+    </section>
+
+    <section id="prointro">
+     <div class="content-section-intro">
+        <div class="container">
+            <div class="row">
+                 <h2 class="section-heading">Intro</h2>
+                <hr class="header-divider-top">
+                <div class="col-sm-6 pull-right hideme">
+                    <h3 class="section-subheading">Motivation</h2>
+                    <hr class="subheader-divider-top">
+                    <P class="blue-text">We choose to work with NYPD Collision Data, since it is basicly a matter of <span class="orange-text">life and death</span>. If we could make a breakthrough and determine the main causalities of traffic accidents in New York, preventive measures could be taken and traffic related injuries and fatalities can be reduced. This could prevent reduction in life quality and save the authorities of New York city a certain amount of expenses.
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+        <br><br>
+        <div class="container">
+            <div class="row">
+              <div class="row-height">
+                <div class="col-md-6 col-sm-6 col-height col-top hideme">
+                    <h3 class="section-subheading">About the Datasets</h2>
+                    <hr class="subheader-divider-top">
+                    <P class="blue-text">The project focus on analysing the motor vehicle accidents in NYC registered since July 1st 2012. The original dataset can be extracted from Open City website at <a class="dataset-link" href="https://data.cityofnewyork.us/Public-Safety/NYPD-Motor-Vehicle-Collisions/h9gi-nx95" >NYPD Motor Vehicle Collisions | NYC Open Data</a>. Besides, two addictional datasets are used and merged with the fundemental dataset into an integration. One is the speed limit data given by  <a class="dataset-link" href="http://www.nyc.gov/html/dot/html/about/vz_datafeeds.shtml">NYC DOT</a>, the other is the weather data extracted from  <a class="dataset-link"  href="https://www.wunderground.com/">Weather Underground</a>. As weather undergound API requires a valid license, the data embedded into the project is extracted by scrapping the website by <a class="dataset-link" href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/">Beautifulsoup 4</a> and manually parsed it afterwards. The integrated dataset (CSV) can be downloaded at <a class="dataset-link" href="https://drive.google.com/file/d/0BymjCBWE7wFzWHhyV2Y5NjQwX1U/view?usp=sharing">here</a>.
+                    <P class="blue-text"> This website introduces two main sections of the analysis. Firstly, preliminary analysis is performed against the dataset including analysing of the spatio and temporal distribution of accidents. Secondly, Several Machine Learning models are implemented on the dataset including <span class="orange-text">clustering, random forest, neural network and more</span>.
+                </div>
+
+                <div class="col-md-6 col-sm-6 hideme col-height col-middle">
+            
+                 <div class="row clearfix icon-group">
+                    <div class="col-xs-4" id="icon-box">
+                       <span><i class="fa fa-car fa-4x icon " aria-hidden="true"></i></span>
+                    </div>
+                    <div class="col-xs-4" id="icon-box">
+                        <span><i class="fa fa-umbrella fa-4x icon" aria-hidden="true"></i></span>
+                    </div>
+                    <div class="col-xs-4" id="icon-box">
+                        <span><i class="fa fa-tachometer fa-4x icon" aria-hidden="true"></i></span>
+                    </div>
+                 </div>
+                
+                </div>
+
+              </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    </section>
+
+    <section id="preliminary">
+    <div class="content-section-preliminary">
+    	
+    	 <div class="container">
+            <div class="row">
+            	<h2 class="section-heading text-right hideme">Preliminary Analysis</h2>
+            	<hr class="header-divider-top hideme">
+                <div>
+                <section id="temporal">
+                    <div class="clearfix"></div>
+                    <h3 class="section-subheading hideme">Temporal Distribution</h3>
+                    <hr class="subheader-divider-top hideme">
+                    <P class="blue-text hideme">In the following two plots the focus is the number of traffic casualties in NYC over time. Some interesting perspectives are visualised and analyzed afterwards. <span class="orange-text">D3.js and Plotly.js </span> are both used for the plots in this section below.</P>
+
+                    <div class="hideme" id="monthly-all" style="width:100%; height: 600px">
+	                    <div class="clearfix"></div>
+						<h4 class="orange-text"><i class="fa fa-hand-o-right" aria-hidden="true"></i> 1. Monthly Statistic of Accidents</h4>
+						<div id="month-plotly" style="width:100%; height: 400px"></div>
+						<div class="clearfix"></div>
+
+						<P class="blue-text">The barchart above shows the monthly statistic of accident which caused any casualties. The plot is fully interactive. You can hide different groups by clicking the legends or zoom in/out to check the details.</P>
+
+						<P class="blue-text">The number of casualties seems quite <span class="orange-text">steady</span> though there are some interesting tendencies observed: Each year in February there is a sudden dip. This dip is too big to be caused by the month being 2 days shorter than the rest. Another thing to notice is the <span class="orange-text">drastic reduction in casualties in August and September</span> of 2016. <a class="dataset-link" href="http://www1.nyc.gov/site/visionzero/news/news.page">DOT</a> as well as NYPD have performed a series of actions to improve the traffic safety in this period which can be seen as the main reason leading to the reduction on the plot. </P>
+
+					</div>
+
+					<div class="hideme" id="yearly-all" style="width:100%; height: 600px">
+						<div class="clearfix"></div>
+						<h4 class="orange-text"><i class="fa fa-hand-o-right" aria-hidden="true"></i> 2. Yearly Statistic of Accidents in Each District</h4>
+						<P class="blue-text">The donut chart below shows the yearly statistic of traffic accident for each of the 5 boroughs. The chart is <span class="orange-text">interactive</span> and if you hover over a borough, the total number of accidents for that borough in that year is displayed in the center of the "donut". Use the <span class="orange-text">slider</span> to toggle between the different years.
+						</P>
+						<br>
+						<div class="range-slider">
+							<input class="range-slider__range" type="range" value="2012" min="2012" max="2017" step="1">
+							<span class="range-slider__value">0</span>
+						</div>
+						<div id="donut-content">
+							<P class="blue-text">
+							<span class="orange-text">While the thumb above slides from 2012 to 2017</span>, Even though data in 2012 and 2017 are incomplete, the precentage of amount of accident of each district against yearly summation in the plot <span class="orange-text">rarely changes</span> during the time. The rank is consistently fixed as below. 
+							</P>
+							<ul class="custom-bullet orange-text">
+							<li>Brooklyn</li>
+							<li>Manhattan</li>
+							<li>Queens</li>
+							<li>Bronx</li>
+							<li>Staten Island</li>
+							</ul>
+						</div>
+						<div id="donut-chart"></div>
+					</div>
+                    <br>
+                </section>
+
+
+    			<section id="spatial">
+                    <div class="clearfix"></div>
+                    <h3 class="section-subheading hideme">Spatial Distribution</h2>
+                    <hr class="subheader-divider-top hideme">
+                    <P class="blue-text hideme">The locations of accident scenes are analyzed in this section. The maps reveal the geographical distributions of accidents. We used <a class="dataset-link" href="https://folium.readthedocs.io/en/latest/" >Folium.js</a> to plot the maps and make data visualisation interactive.  </P>
+					
+                    <div class="hideme" id="folium-top-10-all" style="width:100%; height: 550px">
+						<div id="folium-top-10-content">
+						 	<div class="clearfix"></div>
+							<h4 class="orange-text"><i class="fa fa-hand-o-right" aria-hidden="true"></i> 1. Top 10 Dangerous corners in NYC</h4>
+							<P class="blue-text"> The interactive map to the right shows the <span class="orange-text">top 10 most dangerous coners</span>. The corners are where the most accidents have occurred since July 2012. The dots on the map show where the corners are, and their <span class="orange-text">color indicate how (relatively) dangerous they are (the more red a dot is, the more dangerous)</span>. The plot reveals that the cross-section between <span class="orange-text">Tillary Street</span> and <span class="orange-text">Manhattan Bridge</span> has the highest number of registered collisions. 
+                            For more information about the plot (including the code) see the Explainer <span class="orange-text">Notebook section  2.2.3</span>.
+							</P>
+							<P class="blue-text">The plot reveals that the cross between <span class="orange-text">Tillary Street </span>and <span class="orange-text">Manhattan Bridge</span> has registered most amount of accidents since July 1st 2012.
+							</P>
+						</div>
+						<div id="folium-top-10-div" style="float:right; display: inline-block; width:50%;">
+							<iframe id="folium-top-10-frame" src="map.html" style="width:100%; height: 500px" frameborder="2">
+							</iframe>
+						</div>
+					</div>
+
+
+                    <div class="hideme" id="folium-heatmap-all" style="width:100%; height: 550px">
+                    	<h4 class="orange-text"><i class="fa fa-hand-o-right" aria-hidden="true"></i> 2. Heatmap of each year</h4>
+                    	<div class="clearfix"></div>
+	                    <ul class="nav nav-tabs year-nav">
+	                        <li class="active"><a class="tabthree blue-text" data-toggle="tab" href="#tabtwl">2012</a></li>
+	                        <li><a class="tabften blue-text" data-toggle="tab" href="#tabthrt">2013</a></li>
+	                        <li><a class="tabften blue-text" data-toggle="tab" href="#tabfort">2014</a></li>
+	                        <li><a class="tabften blue-text" data-toggle="tab" href="#tabfift">2015</a></li>
+	                        <li><a class="tabften blue-text" data-toggle="tab" href="#tabsixt">2016</a></li>
+	                        <li><a class="tabften blue-text" data-toggle="tab" href="#tabsevt">2017</a></li>
+	                    </ul>
+                        <div lcass="heat-content">
+                            <P class="blue-text">
+                            On the plot below can see a heat map of all collisions found in the dataset. Hotter areas (meaning stronger red color) is correlated with the number of accidents in a given area. The map offers the ability to <span class="orange-text">switch between years</span> (using the tabs) and also zooming in/out to better visualise certain areas.
+                            </P> 
+                            <P class="blue-text">
+                            It can be noticed that most collisions are registered at an intersection. This makes sense since many accidents happens in intersections. Furthermore, it is more convenient to locate/register an accident by the two nearest streets (like “it happened right were Nørrebrogade meets Jagtvej)  
+                            </P>                          
+                        </div>
+	                    <div class="tab-content">
+	                      <div id="tabtwl" class="tab-pane fade in active">
+	                        <h5 class="orange-text">Heatmap 2012 </h5>
+							<iframe id="tabtwl-frame" src="heatmap12.html" style="width:800px; height: 400px; display: block; margin-left: auto; margin-right: auto;" frameborder="2">
+							</iframe>
+	                      </div>
+	                      <div id="tabthrt" class="tab-pane fade">
+	                        <h5 class="orange-text">Heatmap 2013 </h5>
+	                        <iframe id="tabthrt-frame" src="heatmap13.html" style="width:800px; height: 400px; display: block; margin-left: auto; margin-right: auto;" frameborder="2">
+							</iframe>
+	                      </div>
+	                       <div id="tabfort" class="tab-pane fade">
+	                        <h5 class="orange-text">Heatmap 2014 </h5>
+	                       	<iframe id="tabfort-frame" src="heatmap14.html" style="width:800px; height: 400px; display: block; margin-left: auto; margin-right: auto;" frameborder="2">
+							</iframe>
+	                      </div>
+	                      <div id="tabfift" class="tab-pane fade">
+	                        <h5 class="orange-text">Heatmap 2015 </h5>
+	                       	<iframe id="tabfift-frame" src="heatmap15.html" style="width:800px; height: 400px; display: block; margin-left: auto; margin-right: auto;" frameborder="2">
+							</iframe>
+	                      </div>
+	                      <div id="tabsixt" class="tab-pane fade">
+	                        <h5 class="orange-text">Heatmap 2016 </h5>
+	                        <iframe id="tabsixt-frame" src="heatmap16.html" style="width:800px; height: 400px; display: block; margin-left: auto; margin-right: auto;" frameborder="2">
+							</iframe>
+	                      </div>
+	                      <div id="tabsevt" class="tab-pane fade">
+	                        <h5 class="orange-text">Heatmap 2017 </h5>
+	                        <iframe id="tabsevt-frame" src="heatmap17.html" style="width:800px; height: 400px; display: block; margin-left: auto; margin-right: auto;" frameborder="2">
+							</iframe>
+	                      </div>
+	                    </div>
+                    </div>
+
+                    <br>
+    			</section>
+            	</div>
+
+        	</div>
+        <!-- /.container -->
+
+        </div>
+    </div>
+    </section>
+
+    <section id="machinelearning">
+    <div class="content-section-machine">
+
+        <div class="container">
+
+
+				<h2 class="section-heading text-left hideme">Machine Learning Models</h2>
+            	<hr class="header-divider-top hideme">
+            	<P class="blue-text hideme">For the supervised machine learning part, various models were trained to predict whether an individual gets injured/killed given that there is an accident. Performance was measured with nested cross validation and the feature importance calculated. As can be seen in the explainer notebook, <span class="orange-text">clustering analysis</span> has also been done for the NYC collision dataset. Despite KMeans not revealing any well separated clusters, the clustering was visualised in d3 on a <span class="orange-text">separate page</span>, see  <a class="dataset-link" href="clustering_website">here</a>.</P>
+            <div class="hideme" style="width:100%; height: 500px">
+            	<section id="featurenet">
+				<h3 class="section-subheading hideme">Feature Net - WordCloud</h3>
+                <hr class="subheader-divider-top hideme"> 
+            <div class="row">
+                <div class="row-height">          
+                <div class="col-dm-3 col-sm-3 col-height col-top hideme" id="word-cloud-content"><P class="blue-text">The Random Forest model offers the possibility of calculating <span class="orange-text">feature importance</span> on a given dataset when doing machine learning modelling. On the right, a word cloud can be seen that representing the features used and their importance (when predicting whether a person gets injured/killed given that there is a collision in NYC). <span class="orange-text">Higher importance is correlated with larger font size and a stronger yellow colour</span>. For example, time is an important feature when making the predictions carried out in this project. 
+                </P>
+                <P class="blue-text">
+                While not being the most information dense way to represent feature importance, <span class="orange-text">the word cloud offers a quick and intuitive visualisation</span>. A more informative visualisation would be <span class="orange-text">a bar chart</span>, which can be seen in the explainer notebook. 
+                </P></div>
+                <div class="col-dm-9 col-sm-9 col-height col-top hideme" id="word-cloud"></div>
+                
+                </div>
+              </div>
+              </section>
+            </div>
+            <br>
+            <br>
+            <div class="hideme" style="width:100%">
+            <section id="performance">
+            <h3 class="section-subheading hideme">Performance Evaluation of Different Models</h3>
+            <hr class="subheader-divider-top hideme"> 
+            <div class="row">
+                <div class="row-height">   
+                <div class="col-dm-8 col-sm-8 col-height col-top hideme" id="perform-plot"></div>
+                <div class="col-dm-4 col-sm-4 col-height col-top hideme" id="perform-content">
+                <p class="blue-text">On the left the performance of five machine learning models trained and tested can be seen. The performance of each model was evaluated with <span class="orange-text">nested cross validation</span> (see details in explainer notebook). 
+                As can be seen, all the models perform similarly well. The fact that the models do not differ much in performance might indicate that they are all able to separate observations based on the variance that is present in the dataset. The fact that more accuracy is not achieved may be due more variance being needed (in the form of additional descriptive features, e.g. car speed when the collision happened, age of passengers, etc.) in the dataset.</p>
+                </div>
+               	</div>
+            </div>
+            </section>
+            </div>
+
+       </div>
+
+    </div>
+    </section>
+
+
+
+
+    <footer class="footer-distributed">
+
+            <div class="footer-right">
+                <a href="http://nbviewer.jupyter.org/github/ShawnHouCHN/SDAV2017-Assignment2/blob/master/week_5/week_5_exercises.ipynb"><i class="fa fa-cloud"></i></a>
+                <a href="https://drive.google.com/file/d/0BymjCBWE7wFzWHhyV2Y5NjQwX1U/view?usp=sharing"><i class="fa fa-book"></i></a>
+                <a href="https://github.com/ShawnHouCHN/SDAV2017-Assignment2/tree/master/Assignment2"><i class="fa fa-github"></i></a>
+            </div>
+
+            <div class="footer-left">
+                <p>Course: 02806 Social Data Analyse and Visualisation 2017</p>
+                <p>Lecturer: Sune Lehmann Jørgensen</p>
+                <p>Picture source: All pictures included in the web are valid for non-profit usage.</p>
+            </div>
+
+    </footer>
+
+
+
+  <script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
+  <script type="text/javascript" src="js/d3.layout.cloud.js"></script>
+  <script type="text/javascript" src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <!-- <script type="text/javascript" src="js/week7.js"></script> -->
+  <!--  <script type="text/javascript" src="js/week8.js"></script> -->
+  <script type="text/javascript" src="js/project-d3-pre.js"></script>
+   <script type="text/javascript" src="js/project-d3-ml.js"></script>
+  <!-- jQuery -->
+  <script src="js/jquery.js"></script>
+  <script src="js/jquery.easing.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <!--<script type="text/javascript" src="js/ownjs.js"></script> -->
+  <script src="js/bootstrap.min.js"></script>
+
+  <script src="js/scrolling-nav.js"></script>
+  <script src="js/animate.min.js"></script>
+
+  
+
+  </body>
+</html>
