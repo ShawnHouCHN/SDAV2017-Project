@@ -52,7 +52,7 @@
                     <li class="dropdown">
                         <a class="dropdown-toggle page-scroll" href="#machinelearning" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Machine Learning</a>
                         <ul class="dropdown-menu" role="menu">
-                        <li><a class="page-scroll" href="clustering_website">Clustering</a></li>
+                            <li><a class="page-scroll" style="font-weight: bold;" href="clustering_website">Clustering</a></li>
                             <li><a class="page-scroll" href="#featurenet">Feature Importance</a></li>
                             <li><a class="page-scroll" href="#performance">Model Accuracy</a></li>
                         </ul>
@@ -128,7 +128,8 @@
                 <div class="col-sm-6 pull-right hideme">
                     <h3 class="section-subheading">Motivation</h2>
                     <hr class="subheader-divider-top">
-                    <P class="blue-text">We choose to work with NYPD Collision Data, since it is basicly a matter of <span class="orange-text">life and death</span>. If we could make a breakthrough and determine the main causalities of traffic accidents in New York, preventive measures could be taken and traffic related injuries and fatalities can be reduced. This could prevent reduction in life quality and save the authorities of New York city a certain amount of expenses.
+                    <P class="blue-text">We choose to work with NYPD Collision Data, since it is <span class="orange-text">a matter of life and death</span>. If we could make a breakthrough and determine the main causalities of traffic accidents in New York, preventive measures could be taken and traffic related injuries and fatalities could be reduced. This could safeguard the life quality of the citizens and safe a lot of money for the city of New York.
+                    </P>
                 </div>
             </div>
 
@@ -141,8 +142,8 @@
                 <div class="col-md-6 col-sm-6 col-height col-top hideme">
                     <h3 class="section-subheading">About the Datasets</h2>
                     <hr class="subheader-divider-top">
-                    <P class="blue-text">The project focus on analysing the motor vehicle accidents in NYC registered since July 1st 2012. The original dataset can be extracted from Open City website at <a class="dataset-link" href="https://data.cityofnewyork.us/Public-Safety/NYPD-Motor-Vehicle-Collisions/h9gi-nx95" >NYPD Motor Vehicle Collisions | NYC Open Data</a>. Besides, two addictional datasets are used and merged with the fundemental dataset into an integration. One is the speed limit data given by  <a class="dataset-link" href="http://www.nyc.gov/html/dot/html/about/vz_datafeeds.shtml">NYC DOT</a>, the other is the weather data extracted from  <a class="dataset-link"  href="https://www.wunderground.com/">Weather Underground</a>. As weather undergound API requires a valid license, the data embedded into the project is extracted by scrapping the website by <a class="dataset-link" href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/">Beautifulsoup 4</a> and manually parsed it afterwards. The integrated dataset (CSV) can be downloaded at <a class="dataset-link" href="https://drive.google.com/file/d/0BymjCBWE7wFzWHhyV2Y5NjQwX1U/view?usp=sharing">here</a>.
-                    <P class="blue-text"> This website introduces two main sections of the analysis. Firstly, preliminary analysis is performed against the dataset including analysing of the spatio and temporal distribution of accidents. Secondly, Several Machine Learning models are implemented on the dataset including <span class="orange-text">clustering, random forest, neural network and more</span>.
+                    <P class="blue-text">The project focus is on analysing the motor vehicle accidents in NYC registered since July 1st 2012. The original dataset can be extracted from Open City website at <a class="dataset-link" href="https://data.cityofnewyork.us/Public-Safety/NYPD-Motor-Vehicle-Collisions/h9gi-nx95" >NYPD Motor Vehicle Collisions | NYC Open Data</a>. Besides, two addictional datasets are used and merged with the original dataset. One is the speed limit data given by  <a class="dataset-link" href="http://www.nyc.gov/html/dot/html/about/vz_datafeeds.shtml">NYC DOT</a>, the other is the weather data extracted from  <a class="dataset-link"  href="https://www.wunderground.com/">Weather Underground</a>. As the weather undergound API requires a valid license, the data embedded into the project is extracted by scraping the website with <a class="dataset-link" href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/">Beautifulsoup 4</a> and is manually parsed afterwards. The integrated dataset (CSV) can be downloaded <a class="dataset-link" href="https://drive.google.com/file/d/0BymjCBWE7wFzWHhyV2Y5NjQwX1U/view?usp=sharing">here</a>.
+                    <P class="blue-text"> This website has two main analysis sections. Firstly, preliminary analysis is performed against the dataset including analysing of the spatio and temporal distribution of accidents. Secondly, Several Machine Learning models are implemented on the dataset including <span class="orange-text">clustering, random forest, neural network and more</span>.
                 </div>
 
                 <div class="col-md-6 col-sm-6 hideme col-height col-middle">
@@ -182,7 +183,7 @@
                     <div class="clearfix"></div>
                     <h3 class="section-subheading hideme">Temporal Distribution</h3>
                     <hr class="subheader-divider-top hideme">
-                    <P class="blue-text hideme">In the following two plots the focus is the number of traffic casualties in NYC over time. Some interesting perspectives are visualised and analyzed afterwards. <span class="orange-text">D3.js and Plotly.js </span> are both used for the plots in this section below.</P>
+                    <P class="blue-text hideme">In the following two plots the focus is the number of traffic casualties in NYC over time. Some interesting perspectives are visualised and analyzed afterwards. <span class="orange-text">The plots are created using D3.js and Plotly.js.</span></P>
 
                     <div class="hideme" id="monthly-all" style="width:100%; height: 600px">
 	                    <div class="clearfix"></div>
@@ -198,7 +199,7 @@
 
 					<div class="hideme" id="yearly-all" style="width:100%; height: 600px">
 						<div class="clearfix"></div>
-						<h4 class="orange-text"><i class="fa fa-hand-o-right" aria-hidden="true"></i> 2. Yearly Statistic of Accidents in Each District</h4>
+						<h4 class="orange-text"><i class="fa fa-hand-o-right" aria-hidden="true"></i> 2. Yearly Statistic of Accidents in Each Borough</h4>
 						<P class="blue-text">The donut chart below shows the yearly statistic of traffic accident for each of the 5 boroughs. The chart is <span class="orange-text">interactive</span> and if you hover over a borough, the total number of accidents for that borough in that year is displayed in the center of the "donut". Use the <span class="orange-text">slider</span> to toggle between the different years.
 						</P>
 						<br>
@@ -208,7 +209,7 @@
 						</div>
 						<div id="donut-content">
 							<P class="blue-text">
-							<span class="orange-text">While the thumb above slides from 2012 to 2017</span>, Even though data in 2012 and 2017 are incomplete, the precentage of amount of accident of each district against yearly summation in the plot <span class="orange-text">rarely changes</span> during the time. The rank is consistently fixed as below. 
+							<span class="orange-text">Even though 2012 and 2017 are incomplete the distributions for each year are very similar. <span class="orange-text">Except for two years</span> where Bronx has more traffic accidents than Queens the distribution ranking is fixed as below: 
 							</P>
 							<ul class="custom-bullet orange-text">
 							<li>Brooklyn</li>
@@ -228,16 +229,14 @@
                     <div class="clearfix"></div>
                     <h3 class="section-subheading hideme">Spatial Distribution</h2>
                     <hr class="subheader-divider-top hideme">
-                    <P class="blue-text hideme">The locations of accident scenes are analyzed in this section. The maps reveal the geographical distributions of accidents. We used <a class="dataset-link" href="https://folium.readthedocs.io/en/latest/" >Folium.js</a> to plot the maps and make data visualisation interactive.  </P>
+                    <P class="blue-text hideme">In the following section, the geo data of the Collision dataset is used to analyze and visualize the spatial distribution of the traffic collisions. <a class="dataset-link" href="https://folium.readthedocs.io/en/latest/" >Folium.js</a> was used to create the plots and make them interactive.</P>
 					
                     <div class="hideme" id="folium-top-10-all" style="width:100%; height: 550px">
 						<div id="folium-top-10-content">
 						 	<div class="clearfix"></div>
-							<h4 class="orange-text"><i class="fa fa-hand-o-right" aria-hidden="true"></i> 1. Top 10 Dangerous corners in NYC</h4>
+							<h4 class="orange-text"><i class="fa fa-hand-o-right" aria-hidden="true"></i> 1. Top 10 Most Dangerous Corners in NYC</h4>
 							<P class="blue-text"> The interactive map to the right shows the <span class="orange-text">top 10 most dangerous coners</span>. The corners are where the most accidents have occurred since July 2012. The dots on the map show where the corners are, and their <span class="orange-text">color indicate how (relatively) dangerous they are (the more red a dot is, the more dangerous)</span>. The plot reveals that the cross-section between <span class="orange-text">Tillary Street</span> and <span class="orange-text">Manhattan Bridge</span> has the highest number of registered collisions. 
                             For more information about the plot (including the code) see the Explainer <span class="orange-text">Notebook section  2.2.3</span>.
-							</P>
-							<P class="blue-text">The plot reveals that the cross between <span class="orange-text">Tillary Street </span>and <span class="orange-text">Manhattan Bridge</span> has registered most amount of accidents since July 1st 2012.
 							</P>
 						</div>
 						<div id="folium-top-10-div" style="float:right; display: inline-block; width:50%;">
@@ -248,7 +247,7 @@
 
 
                     <div class="hideme" id="folium-heatmap-all" style="width:100%; height: 550px">
-                    	<h4 class="orange-text"><i class="fa fa-hand-o-right" aria-hidden="true"></i> 2. Heatmap of each year</h4>
+                    	<h4 class="orange-text"><i class="fa fa-hand-o-right" aria-hidden="true"></i> 2. Heat Maps</h4>
                     	<div class="clearfix"></div>
 	                    <ul class="nav nav-tabs year-nav">
 	                        <li class="active"><a class="tabthree blue-text" data-toggle="tab" href="#tabtwl">2012</a></li>
@@ -260,7 +259,7 @@
 	                    </ul>
                         <div lcass="heat-content">
                             <P class="blue-text">
-                            On the plot below can see a heat map of all collisions found in the dataset. Hotter areas (meaning stronger red color) is correlated with the number of accidents in a given area. The map offers the ability to <span class="orange-text">switch between years</span> (using the tabs) and also zooming in/out to better visualise certain areas.
+                            In the heat map below, you can see the spatial concentrations of collisions. By <span class="orange-text">using the tabs</span> it is possible to <span class="orange-text">toggle between the years</span>. By zooming in/out it is possible to better visualize certain areas.
                             </P> 
                             <P class="blue-text">
                             It can be noticed that most collisions are registered at an intersection. This makes sense since many accidents happens in intersections. Furthermore, it is more convenient to locate/register an accident by the two nearest streets (like “it happened right were Nørrebrogade meets Jagtvej)  
@@ -319,17 +318,17 @@
 
 				<h2 class="section-heading text-left hideme">Machine Learning Models</h2>
             	<hr class="header-divider-top hideme">
-            	<P class="blue-text hideme">For the supervised machine learning part, various models were trained to predict whether an individual gets injured/killed given that there is an accident. Performance was measured with nested cross validation and the feature importance calculated. As can be seen in the explainer notebook, <span class="orange-text">clustering analysis</span> has also been done for the NYC collision dataset. Despite KMeans not revealing any well separated clusters, the clustering was visualised in d3 on a <span class="orange-text">separate page</span>, see  <a class="dataset-link" href="clustering_website">here</a>.</P>
+            	<P class="blue-text hideme">For the supervised machine learning part, various models were trained to predict whether an individual gets injured or killed given that there is an accident. Performance was measured with nested cross validation and the feature importance calculated. As can be seen in the explainer notebook, <span class="orange-text">clustering analysis</span> has also been done for the NYC collision dataset. Despite KMeans not revealing any well separated clusters, the clustering was visualised in d3 on a <span class="orange-text">separate page</span>, see  <a class="dataset-link" href="clustering_website">-->HERE</a>.</P>
             <div class="hideme" style="width:100%; height: 500px">
             	<section id="featurenet">
 				<h3 class="section-subheading hideme">Feature Importance - WordCloud</h3>
                 <hr class="subheader-divider-top hideme"> 
             <div class="row">
                 <div class="row-height">          
-                <div class="col-dm-3 col-sm-3 col-height col-top hideme" id="word-cloud-content"><P class="blue-text">The Random Forest model offers the possibility of calculating <span class="orange-text">feature importance</span> on a given dataset when doing machine learning modelling. On the right, a word cloud can be seen that representing the features used and their importance (when predicting whether a person gets injured/killed given that there is a collision in NYC). <span class="orange-text">Higher importance is correlated with larger font size and a stronger yellow colour</span>. For example, time is an important feature when making the predictions carried out in this project. 
+                <div class="col-dm-3 col-sm-3 col-height col-top hideme" id="word-cloud-content"><P class="blue-text">The Random Forest model offers the possibility of calculating <span class="orange-text">feature importance</span> on a given dataset when doing machine learning modelling. On the right, a word cloud can be seen that representing the features used and their importance (when predicting whether a person gets injured or killed given that there is a collision in NYC). <span class="orange-text">Higher importance is correlated with larger font size and a stronger yellow colour</span>. For example, time is an important feature when making the predictions carried out in this project. 
                 </P>
                 <P class="blue-text">
-                While not being the most information dense way to represent feature importance, <span class="orange-text">the word cloud offers a quick and intuitive visualisation</span>. A more informative visualisation would be <span class="orange-text">a bar chart</span>, which can be seen in the explainer notebook. 
+                While not being the most information dense way to represent feature importance, <span class="orange-text">the word cloud offers a quick and intuitive visualisation</span>. A more informative visualisation would be <span class="orange-text">a bar chart</span>, which can be seen in the explainer notebook (section 3.2.2.3). 
                 </P></div>
                 <div class="col-dm-9 col-sm-9 col-height col-top hideme" id="word-cloud"></div>
                 
@@ -347,7 +346,7 @@
                 <div class="row-height">   
                 <div class="col-dm-8 col-sm-8 col-height col-top hideme" id="perform-plot"></div>
                 <div class="col-dm-4 col-sm-4 col-height col-top hideme" id="perform-content">
-                <p class="blue-text">On the left the performance of five machine learning models trained and tested can be seen. The performance of each model was evaluated with <span class="orange-text">nested cross validation</span> (see details in explainer notebook). 
+                <p class="blue-text">On the left the performance of five machine learning models trained and tested can be seen. The performance of each model was evaluated with <span class="orange-text">nested cross validation</span> (Notebook section 3.2.2.2). 
                 As can be seen, all the models perform similarly well. The fact that the models do not differ much in performance might indicate that they are all able to separate observations based on the variance that is present in the dataset. The fact that more accuracy is not achieved may be due more variance being needed (in the form of additional descriptive features, e.g. car speed when the collision happened, age of passengers, etc.) in the dataset.</p>
                 </div>
                	</div>
